@@ -1,11 +1,51 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Robusta Brazil", img: "1.jpg", price: 20000 },
-      { id: 2, name: "Arabica Blend", img: "2.jpg", price: 25000 },
-      { id: 3, name: "Primo Passo", img: "3.jpg", price: 30000 },
-      { id: 4, name: "Aceh Gayo", img: "4.jpg", price: 35000 },
-      { id: 5, name: "Sumatra Mandheling", img: "5.jpg", price: 25000 },
+      {
+        id: 1,
+        name: "Robusta Brazil",
+        img: "1.jpg",
+        price: 20000,
+        rating: 4.5,
+        description:
+          "Karakter kopi yang kuat dan bold, dengan sedikit rasa pahit yang khas serta aroma tanah yang kental. Cocok untuk kamu pecinta kopi hitam yang nendang.",
+      },
+      {
+        id: 2,
+        name: "Arabica Blend",
+        img: "2.jpg",
+        price: 25000,
+        rating: 4.2,
+        description:
+          "Perpaduan biji arabika pilihan dengan rasa yang lebih lembut, sedikit asam segar, dan aroma yang harum. Pas diminum kapan saja.",
+      },
+      {
+        id: 3,
+        name: "Primo Passo",
+        img: "3.jpg",
+        price: 30000,
+        rating: 4.8,
+        description:
+          "Racikan house blend andalan kami, seimbang antara rasa manis karamel dan sedikit rasa cokelat di akhir tegukan.",
+      },
+      {
+        id: 4,
+        name: "Aceh Gayo",
+        img: "4.jpg",
+        price: 35000,
+        rating: 3.9,
+        description:
+          "Kopi khas dataran tinggi Gayo dengan body yang tebal, rasa rempah yang unik, dan after taste yang panjang.",
+      },
+      {
+        id: 5,
+        name: "Sumatra Mandheling",
+        img: "5.jpg",
+        price: 25000,
+        rating: 4.6,
+        description:
+          "Kopi Sumatra dengan karakter earthy yang dalam, low acidity, serta sentuhan rasa herbal yang khas.",
+      },
     ],
   }));
 
@@ -62,7 +102,34 @@ document.addEventListener("alpine:init", () => {
       }
     },
   });
+
+  // Store baru: nyimpen produk mana yang lagi dibuka detailnya di modal
+  Alpine.store("modal", {
+    show: false,
+    item: null,
+    open(item) {
+      this.item = item;
+      this.show = true;
+    },
+    close() {
+      this.show = false;
+    },
+  });
 });
+
+// Ubah rating (0–5) jadi array 5 nilai persen isi bintang.
+// Contoh: rating 4.5 -> [100, 100, 100, 100, 50] (4 bintang penuh + setengah)
+const getStars = (rating) => {
+  const stars = [];
+  for (let i = 0; i < 5; i++) {
+    const diff = rating - i;
+    let fill = 0;
+    if (diff >= 1) fill = 100;
+    else if (diff > 0) fill = Math.round(diff * 100);
+    stars.push(fill);
+  }
+  return stars;
+};
 
 // Form Validation
 const checkoutButton = document.querySelector(".checkout-button");

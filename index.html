@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kopi Kenangan Senja</title>
+    <title>LockIn Coffee Shop</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,7 +40,7 @@
   <body>
     <!-- Navbar start -->
     <nav class="navbar" x-data>
-      <a href="#" class="navbar-logo">kenangan<span>senja</span>.</a>
+      <a href="#" class="navbar-logo">LockIn<span>Coffee</span></a>
 
       <div class="navbar-nav">
         <a href="#home">Home</a>
@@ -72,7 +72,7 @@
 
       <!-- Shopping Cart start -->
       <div class="shopping-cart">
-        <template x-for="(item, index) in $store.cart.items" x-key="index">
+        <template x-for="(item, index) in $store.cart.items" :key="index">
           <div class="cart-item">
             <img :src="'img/products/' + item.img" :alt="item.name" />
             <div class="item-detail">
@@ -145,10 +145,10 @@
     <section class="hero" id="home">
       <div class="mask-container">
         <main class="content">
-          <h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
+          <h1>Lock In Hari-mu dengan <span>Secangkir Kopi</span></h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Accusantium, enim.
+            Saatnya masuk ke zona terbaikmu. Ditemani seduhan biji kopi pilihan
+            untuk menjaga fokus, inspirasi, dan energimu sepanjang hari.
           </p>
         </main>
       </div>
@@ -164,14 +164,17 @@
           <img src="img/tentang-kami.jpg" alt="Tentang Kami" />
         </div>
         <div class="content">
-          <h3>Kenapa memilih kopi kami?</h3>
+          <h3>Kenapa Harus LockInCoffee?</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            ducimus voluptatum dolor. Et, voluptatum accusantium!
+            LockInCoffee lahir dari ide sederhana: menciptakan rasa dan suasana
+            yang membantu kamu masuk ke zona fokus terbaik (*lock in*). Kami
+            percaya bahwa cangkir kopi yang tepat bisa menjadi pemicu lahirnya
+            ide-ide besar, produktivitas tinggi, dan percakapan yang bermakna.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic
-            deserunt iure amet facilis eos a quo cum voluptates molestias nihil.
+            Diolah dari biji kopi pilihan Indonesia yang disangrai dengan
+            presisi, setiap cangkir yang kami sajikan mengunci cita rasa
+            autentik dan aroma khas untuk menemani setiap langkah dan harimu.
           </p>
         </div>
       </div>
@@ -182,40 +185,69 @@
     <section id="menu" class="menu">
       <h2><span>Menu</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita,
-        repellendus numquam quam tempora voluptatum.
+        Dari seduhan espresso murni yang bikin fokus, signature kopi susu
+        kekinian, hingga pilihan minuman non-kopi yang menyegarkan.
       </p>
 
       <div class="row">
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img
+            src="img/menu/Espresso.jpg"
+            alt="LockIn Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- LockIn Espresso -</h3>
+          <p class="menu-card-price">IDR 18K</p>
         </div>
+
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Capuccino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
+          <img
+            src="img/menu/KopiSusu.jpg"
+            alt="Es Kopi Susu LockIn"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Kopi Susu LockIn -</h3>
+          <p class="menu-card-price">IDR 22K</p>
         </div>
+
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Latte -</h3>
-          <p class="menu-card-price">IDR 20K</p>
+          <img
+            src="img/menu/CaramelLatte.jpg"
+            alt="Locked Caramel Latte"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Locked Caramel -</h3>
+          <p class="menu-card-price">IDR 26K</p>
         </div>
+
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img
+            src="img/menu/CappucinoFocus.jpg"
+            alt="Cappuccino Focus"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Cappuccino Focus -</h3>
+          <p class="menu-card-price">IDR 24K</p>
         </div>
+
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img
+            src="img/menu/MatchaCream.jpg"
+            alt="Matcha Cream Latte"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Matcha Cream -</h3>
+          <p class="menu-card-price">IDR 26K</p>
         </div>
+
         <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img" />
-          <h3 class="menu-card-title">- Espresso -</h3>
-          <p class="menu-card-price">IDR 15K</p>
+          <img
+            src="img/menu/DarkChocolate.jpg"
+            alt="Dark Chocolate Senja"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Dark Chocolate -</h3>
+          <p class="menu-card-price">IDR 24K</p>
         </div>
       </div>
     </section>
@@ -225,12 +257,12 @@
     <section class="products" id="products" x-data="products">
       <h2><span>Produk Unggulan</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum,
-        ab fuga possimus iste.
+        Nikmati pilihan biji kopi spesialisasi kualitas terbaik untuk menemani
+        momen fokus dan produktifmu setiap hari.
       </p>
 
       <div class="row">
-        <template x-for="(item, index) in items" x-key="index">
+        <template x-for="(item, index) in items" :key="index">
           <div class="product-card">
             <div class="product-icons">
               <a href="#" @click.prevent="$store.cart.add(item)">
@@ -246,7 +278,11 @@
                   <use href="img/feather-sprite.svg#shopping-cart" />
                 </svg>
               </a>
-              <a href="#" class="item-detail-button">
+              <a
+                href="#"
+                class="item-detail-button"
+                @click.prevent="$store.modal.open(item)"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -266,61 +302,34 @@
             <div class="product-content">
               <h3 x-text="item.name"></h3>
               <div class="product-stars">
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <use href="img/feather-sprite.svg#star" />
-                </svg>
+                <template x-for="(fill, i) in getStars(item.rating)" :key="i">
+                  <span class="star" :style="`--fill:${fill}%`">
+                    <svg
+                      class="star-bg"
+                      width="18"
+                      height="18"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                      class="star-fg"
+                      width="18"
+                      height="18"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                  </span>
+                </template>
+                <span
+                  class="rating-number"
+                  x-text="item.rating.toFixed(1)"
+                ></span>
               </div>
               <div class="product-price">
                 <span x-text="rupiah(item.price)"></span>
@@ -336,17 +345,19 @@
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
-        provident.
+        Punya pertanyaan, mau reservasi tempat, atau sekadar ingin memberi
+        saran? Hubungi kami atau langsung mampir ke kedai LockInCoffee.
       </p>
 
       <div class="row">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311709235512!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1672408575523!5m2!1sen!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253839.43967590673!2d106.70961521251328!3d-6.231895088634916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1791092817677!5m2!1sid!2sid"
+          width="600"
+          height="450"
+          style="border: 0"
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="map"
+          referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
 
         <form action="">
@@ -384,38 +395,91 @@
       </div>
 
       <div class="credit">
-        <p>Created by <a href="">sandhikagalih</a>. | &copy; 2023.</p>
+        <p>
+          Created by <a href="">Faris Faathirakmal Wijaya</a>. | &copy; 2026.
+        </p>
       </div>
     </footer>
     <!-- Footer end -->
 
     <!-- Modal Box Item Detail start -->
-    <div class="modal" id="item-detail-modal">
+    <div
+      class="modal"
+      id="item-detail-modal"
+      x-data
+      x-show="$store.modal.show"
+      @click.self="$store.modal.close()"
+      x-cloak
+    >
       <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-          <img src="img/products/1.jpg" alt="Product 1" />
-          <div class="product-content">
-            <h3>Product 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Provident, tenetur cupiditate facilis obcaecati ullam maiores
-              minima quos perspiciatis similique itaque, esse rerum eius
-              repellendus voluptatibus!
-            </p>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star"></i>
+        <a href="#" class="close-icon" @click.prevent="$store.modal.close()"
+          ><i data-feather="x"></i
+        ></a>
+        <template x-if="$store.modal.item">
+          <div class="modal-content">
+            <img
+              :src="'img/products/' + $store.modal.item.img"
+              :alt="$store.modal.item.name"
+            />
+            <div class="product-content">
+              <h3 x-text="$store.modal.item.name"></h3>
+              <p x-text="$store.modal.item.description"></p>
+              <div class="product-stars">
+                <template
+                  x-for="(fill, i) in getStars($store.modal.item.rating)"
+                  :key="i"
+                >
+                  <span class="star" :style="`--fill:${fill}%`">
+                    <svg
+                      class="star-bg"
+                      width="18"
+                      height="18"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                      class="star-fg"
+                      width="18"
+                      height="18"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                  </span>
+                </template>
+                <span
+                  class="rating-number"
+                  x-text="$store.modal.item.rating.toFixed(1)"
+                ></span>
+              </div>
+              <div class="product-price">
+                <span x-text="rupiah($store.modal.item.price)"></span>
+              </div>
+              <a
+                href="#"
+                @click.prevent="$store.cart.add($store.modal.item); $store.modal.close()"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+                <span>add to cart</span>
+              </a>
             </div>
-            <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-            <a href="#"
-              ><i data-feather="shopping-cart"></i> <span>add to cart</span></a
-            >
           </div>
-        </div>
+        </template>
       </div>
     </div>
     <!-- Modal Box Item Detail end -->

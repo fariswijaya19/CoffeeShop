@@ -1,6 +1,8 @@
 :root {
-  --primary: #b6895b;
-  --bg: #010101;
+  --primary: #c97b3d;
+  --primary-dark: #8a4b23;
+  --bg: #120d09;
+  --bg-alt: #1c140d;
 }
 
 * {
@@ -22,14 +24,20 @@ body {
   color: #fff;
 }
 
+/* Alpine: sembunyikan elemen sebelum Alpine sempat menginisialisasi,
+   supaya modal tidak sempat "kelihatan sekilas" saat halaman dimuat */
+[x-cloak] {
+  display: none !important;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 7%;
-  background-color: rgba(1, 1, 1, 0.8);
-  border-bottom: 1px solid #513c28;
+  background-color: rgba(18, 13, 9, 0.85);
+  border-bottom: 1px solid var(--primary-dark);
   position: fixed;
   top: 0;
   left: 0;
@@ -162,8 +170,11 @@ body {
 }
 
 .shopping-cart img {
+  width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .shopping-cart h3 {
@@ -256,7 +267,12 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("../img/header-bg.jpeg");
+  background-image: linear-gradient(
+      180deg,
+      rgba(18, 13, 9, 0.25) 0%,
+      rgba(18, 13, 9, 0.85) 100%
+    ),
+    url("../img/header-bgg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -265,21 +281,10 @@ body {
   mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
 }
 
-/* .hero::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 30%;
-  bottom: 0;
-  background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 50%);
-} */
-
 .hero .mask-container {
   position: absolute;
-  /* background: salmon; */
   inset: 0;
-  -webkit-mask-image: url("../img/header-bg.svg");
+  /* -webkit-mask-image: url("../img/header-bg.svg"); */
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
   -webkit-mask-position: center;
@@ -287,7 +292,6 @@ body {
 
 .hero .content {
   padding: 1.4rem 7%;
-  /* max-width: 60rem; */
   width: 100%;
   text-align: center;
   position: fixed;
@@ -333,6 +337,13 @@ body {
   padding: 8rem 7% 1.4rem;
 }
 
+/* Menu & Contact dapat warna latar sedikit lebih terang dari About &
+   Produk, supaya halaman tidak terasa satu warna hitam polos terus */
+.menu,
+.contact {
+  background-color: var(--bg-alt);
+}
+
 .about h2,
 .menu h2,
 .products h2,
@@ -359,7 +370,10 @@ body {
 
 .about .row .about-img img {
   width: 100%;
-  -webkit-mask-image: url("../img/menu/splash.svg");
+  height: 32rem;
+  object-fit: cover;
+  object-position: center;
+  /* -webkit-mask-image: url("../img/menu/splash.svg"); */
   -webkit-mask-size: 50%;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -388,6 +402,7 @@ body {
 .contact h2 {
   margin-bottom: 1rem;
 }
+
 .menu p,
 .products p,
 .contact p {
@@ -411,8 +426,11 @@ body {
 }
 
 .menu .row .menu-card img {
+  width: 14rem;
+  height: 14rem;
   border-radius: 50%;
-  width: 80%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .menu .row .menu-card .menu-card-title {
@@ -461,26 +479,66 @@ body {
 }
 
 .products .product-image img {
+  width: 100%;
   height: 25rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .products .product-content h3 {
   font-size: 2rem;
 }
 
-.products .product-stars {
-  font-size: 1.7rem;
-  padding: 0.8rem;
-  color: var(--primary);
-}
-
-.products .product-stars .star-full {
-  fill: var(--primary);
-}
-
 .products .product-price {
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+/* Product & Modal Stars (dipakai di kartu produk maupun di modal) */
+.product-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0.8rem 0;
+}
+
+.modal-content .product-stars {
+  justify-content: flex-start;
+}
+
+.product-stars .star {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.product-stars .star svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.product-stars .star-bg {
+  fill: none;
+  stroke: var(--primary);
+  opacity: 0.4;
+}
+
+.product-stars .star-fg {
+  fill: var(--primary);
+  stroke: var(--primary);
+  clip-path: inset(0 calc(100% - var(--fill, 0%)) 0 0);
+}
+
+.product-stars .rating-number {
+  margin-left: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* Contact Section */
@@ -572,7 +630,6 @@ footer .credit a {
 /* Modal Box */
 /* Item Detail */
 .modal {
-  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -617,7 +674,10 @@ footer .credit a {
 }
 
 .modal-content img {
+  width: 16rem;
   height: 20rem;
+  object-fit: cover;
+  object-position: center;
   margin-right: 2rem;
   margin-bottom: 2rem;
 }
@@ -628,8 +688,16 @@ footer .credit a {
   margin-top: 1.2rem;
 }
 
+.modal-content .product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0.4rem 0;
+}
+
 .modal-content a {
   display: flex;
+  align-items: center;
   gap: 1rem;
   width: 12rem;
   background-color: var(--primary);
